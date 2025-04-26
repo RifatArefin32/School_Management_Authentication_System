@@ -55,3 +55,7 @@ python3 manage.py migrate
 ```bash
 python3 manage.py runserver
 ```
+
+## Add Simple-Jwt Authentication
+- Install simple jwt
+- Congfigure `simple-jwt` in django settings
