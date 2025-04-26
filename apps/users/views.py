@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .serializers import StudentRegistrationSerializer
+from apps.users.models import SchoolUser
 
-# Create your views here.
+class StudentRegisterView(generics.CreateAPIView):
+    queryset = SchoolUser.objects.all()
+    serializer_class = StudentRegistrationSerializer
