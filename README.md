@@ -59,3 +59,9 @@ python3 manage.py runserver
 ## Add Simple-Jwt Authentication
 - Install simple jwt
 - Congfigure `simple-jwt` in django settings
+- Add necessary urls to the root urls
+- Create an app `users` to the `apps/` directory and update `INSTALLED_APPS` array at the project settings.
+```bash
+django-admin startapp users
+```
+- 
