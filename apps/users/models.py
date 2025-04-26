@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 
 # Create your models here.
+# `StudentUser` model, common for all types of users 
 class SchoolUser(AbstractUser):
     # additional fields
     user_id = models.IntegerField(unique=True)
@@ -33,3 +34,14 @@ class SchoolUser(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+# `Student` specific properties for the students    
+class Student(models.Model):
+    user = models.OneToOneField(SchoolUser, related_name='student_profile', on_delete=models.CASCADE)
+    roll_number = models.CharField(max_length=20, unique=True)
+    study_class = models.CharField()
+    section = models.CharField(max_length=100, blank=True, null=True)
+    group = models.CharField(max_length=100, blank=True, null=True)
+    shift = models.CharField(max_length=100, blank=True, null=True)
+    session = models.CharField(max_length=50, blank=True, null=True)
+    
